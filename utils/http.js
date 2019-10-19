@@ -1,4 +1,5 @@
 import {config} from "../config/config";
+import {promisic} from "./util";
 
 class Http {
     static request({url, data, callback, method = 'GET'}) {
@@ -9,9 +10,15 @@ class Http {
             header: {
                 appkey: config.appkey
             },
-            success:res =>  {
+            success: res => {
                 callback(res.data)
             }
         })
     }
 }
+
+promisic(wx.request)({
+    url:'',
+    data:'',
+
+})
