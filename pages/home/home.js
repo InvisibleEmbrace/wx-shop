@@ -1,5 +1,6 @@
 // pages/home/home.js
 import {config} from "../../config/config";
+import {Theme} from '../../model/theme'
 
 Page({
 
@@ -13,12 +14,11 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        Theme.getHomeLocationA(data => {
-            this.setData({
-                topTheme: data[0]
-            })
-        });
+    onLoad: async function (options) {
+        const data = await Theme.getHomeLocationA()
+        this.setData({
+            topTheme: data[0]
+        })
     },
 
     /**
