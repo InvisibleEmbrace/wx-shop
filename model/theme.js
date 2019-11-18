@@ -10,7 +10,7 @@ class Theme {
 
     async getThemes() {
         const names = `${Theme.locationA},${Theme.locationE},${Theme.locationF},${Theme.locationH}`
-         this.themes = await Http.request({
+        this.themes = await Http.request({
             url: `theme/by/names`,
             data: {
                 names
@@ -26,12 +26,14 @@ class Theme {
         return this.themes.find(t => t.name === Theme.locationE)
     }
 
-    async getHomeLocationF() {
-        return this.themes.find(t => t.name === Theme.locationF)
+    static async getHomeLocationESpu() {
+        return this.getThemeSpuByName(Theme.locationE)
     }
 
-    async getHomeLocationH() {
-        return this.themes.find(t => t.name === Theme.locationH)
+    static async getThemeSpuByName(name) {
+        return await Http.request({
+            url: `theme/name/${name}/with_spu`
+        })
     }
 }
 

@@ -32,9 +32,16 @@ Page({
         const bannerB = await Banner.getHomeLocationB()
         const grid = await Category.getGridCategory()
         const activityD = await Activity.getHomeLocationD()
+        let themeESpu = []
+        if(themeE.online) {
+            const data = await Theme.getHomeLocationESpu()
+            themeESpu = data.spu_list.slice(0,8)
+        }
         this.setData({
             themeA,
             bannerB,
+            themeE,
+            themeESpu,
             grid,
             activityD
         })
