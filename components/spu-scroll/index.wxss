@@ -1,4 +1,7 @@
 .container {
+    /*解决width: 100%下出现的滑动条，出现原因是因为100%+padding*/
+    box-sizing: border-box;
+    width: 100%;
     padding: 42rpx 0rpx 34rpx 28rpx;
 }
 
@@ -33,4 +36,9 @@
     display: flex;
     flex-direction: row;
     margin-top: 28rpx;
+}
+
+.inner {
+    display: flex;
+    flex-direction: row;
 }
